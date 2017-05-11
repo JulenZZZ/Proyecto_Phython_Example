@@ -20,7 +20,7 @@ def login():
             error= "Login Failed. El usuario o la contraseña es incorrecta."
         else:
             return redirect(url_for('home'))
-        return render_template('login.html', error=error)
+    return render_template('login.html', error=error)
 
 
 if __name__ == "__main__":
