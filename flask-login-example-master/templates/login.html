@@ -17,6 +17,9 @@
 		{% if error %}
 			<p class="error"><strong>Error:</strong>{{ error }} </p>
 		{% endif %}
+		{% if flash %}
+			<p class="error2"><strong>{{ flash }}</strong></p>
+		{% endif %}
 
 
 	</div>
