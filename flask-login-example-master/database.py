@@ -5,24 +5,55 @@ conn = sqlite3.connect("mydatabase.db")
 
 cursor = conn.cursor()
 
+def dict_factory(cursor, row):
+    d = {}
+    for idx, col in enumerate(cursor.description):
+        d[col[0]] = row[idx]
+    return d
+
+
 def create_db():
+    # open connection and cursor
+    conn = sqlite3.connect("mydatabase.db")
+    conn.row_factory = dict_factory
+    c = conn.cursor()    
+    
+    # Create table
+    c.execute('''CREATE TABLE IF NOT EXISTS students (name text, age int)''')
+    c.execute("DELETE FROM students")
 
-    cursor.execute("""CREATE TABLE IF NOT EXISTS post
-                  (title text, artist text, release_date text, 
-                   publisher text, media_type text) 
-               """)
+    # Save (commit) the changes
     conn.commit()
-def insert_db():
+    c.close()
 
-    #insertar una linea de datos
-    cursor.execute("INSERT INTO post VALUES ('Glow', 'Andy Hunter', '7/24/2012', 'Xplore Records', 'MP3')")
-    cursor.execute("INSERT INTO post VALUES ('Noticias','Ortega Y Gasset','2/2/2000','Anon','Text')")
-    # save data to database
+def insert_post(post_name,author_name,descripcion):
+
+     # open connection and cursor
+    conn = sqlite3.connect("mydatabase.db")
+    conn.row_factory = dict_factory
+    c = conn.cursor()    
+
+    # Insert a row of data
+    c.execute("INSERT INTO students VALUES ('Koxme',18)")
+    c.execute("INSERT INTO students VALUES ('Peru',23)")
+
+    # Save (commit) the changes
     conn.commit()
+    c.close()
 
 
 
 def consulta_all_post():
     #consultar los datos de la tabla post
-    return cursor.execute("SELECT * FROM post")
+       # open connection and cursor
+    conn = sqlite3.connect("mydatabase.db")
+    conn.row_factory = dict_factory
+    c = conn.cursor()    
+
+    # select all students
+    c.execute("SELECT * from students")
+    students = c.fetchall() 
+    c.close()
+
+    return students
 consulta_all_post()
