@@ -17,6 +17,13 @@
     <!-- Custom CSS -->
     <link href="static/blog-home.css" rel="stylesheet">
 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 
 <body>
@@ -48,9 +55,9 @@
                     </li>
                 </ul>
             </div>
-            
+            <!-- /.navbar-collapse -->
         </div>
-        
+        <!-- /.container -->
     </nav>
 
     <!-- Page Content -->
@@ -67,18 +74,29 @@
                 </h1>
 
                 <!-- First Blog Post -->
-                <h2>
-                    <a href="#">Blog Post Title</a>
+                {% if posts %}
+                <h1>
+                    {% for s in posts %}
+                         <h2>
+                            <a href="#">{{ post_name}}</a>
                 </h2>
                 <p class="lead">
                     by <a href="index.php">Start Bootstrap</a>
                 </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
                 <hr>
                 <img class="img-responsive" src="http://placehold.it/900x300" alt="">
                 <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores harum voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora ipsam distinctio minima dolorum perferendis labore impedit voluptates!</p>
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                <hr>
+
+                    {% endfor %}    
+                </h1>
+                {% else %}
+                    <h1>No stations!</h1>
+                {% endif %}
 
                 <hr>
 
@@ -103,7 +121,7 @@
                     <a href="#">Blog Post Title</a>
                 </h2>
                 <p class="lead">
-                    by <a href="index.php">Start Bootstrap</a>
+                    by <a href="index.php">Julen</a>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
                 <hr>
@@ -182,11 +200,11 @@
                     <h3>Nuevo Post</h3>
                     <form action="/insert_post">
                         Nombre del Post:<br>
-                    <input type="text" name="post_name" value="Nombre del post."><br>
+                    <input type="text" name="post_name" placeholder="Nombre del post."><br>
                         Autor:<br>
-                    <input type="text" name="author_name" value="Nombre del autor."><br>
+                    <input type="text" name="author_name" placeholder="Nombre del autor."><br>
                         Descripcion:<br>
-                    <input type="text" name="descripcion" value="Introduzca la descripcion del post."><br>
+                    <input type="text" name="descripcion" placeholder="Introduzca la descripcion del post."><br>
                     <input type="submit" value="Submit">
                 </form>
                 </div>
@@ -202,7 +220,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright; Microblog Julen 2017</p>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -221,3 +239,4 @@
 </body>
 
 </html>
+
