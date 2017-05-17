@@ -38,7 +38,8 @@ def route_insert_post():
 
     insert_post(post_name ,author_name ,descripcion)
     
-    return redirect(url_for('home', post_name=post_name, author_name=author_name, descripcion=descripcion))
+    redirect(url_for('home'))
+    return render_template("home.html", post_name=post_name, author_name=author_name, descripcion=descripcion)
 
     
 @app.route('/logout')
