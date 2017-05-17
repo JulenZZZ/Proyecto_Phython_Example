@@ -19,8 +19,8 @@ def create_db():
     c = conn.cursor()    
     
     # Create table
-    c.execute('''CREATE TABLE IF NOT EXISTS students (name text, age int)''')
-    c.execute("DELETE FROM students")
+    c.execute('''CREATE TABLE IF NOT EXISTS post (name text, author text, desc text)''')
+
 
     # Save (commit) the changes
     conn.commit()
@@ -34,8 +34,8 @@ def insert_post(post_name,author_name,descripcion):
     c = conn.cursor()    
 
     # Insert a row of data
-    c.execute("INSERT INTO students VALUES ('Koxme',18)")
-    c.execute("INSERT INTO students VALUES ('Peru',23)")
+    c.execute("INSERT INTO post VALUES ('%s','%s','%s')" % (post_name,author_name,descripcion))
+    
 
     # Save (commit) the changes
     conn.commit()
@@ -51,9 +51,9 @@ def consulta_all_post():
     c = conn.cursor()    
 
     # select all students
-    c.execute("SELECT * from students")
-    students = c.fetchall() 
-    c.close()
+    c.execute("SELECT * from post")
+    posts = c.fetchall() 
 
-    return students
-consulta_all_post()
+
+    return posts
+    c.close()
