@@ -16,7 +16,7 @@ def index():
 
 @app.route('/home')
 def home():
-    posts= get_all_post()
+    posts= consulta_all_post()
     return render_template("home.html",posts=posts)
 
 @app.route('/login', methods=['GET','POST'])
@@ -35,11 +35,12 @@ def route_insert_post():
     post_name = request.args.get('post_name', '')
     author_name = request.args.get('author_name', '')
     descripcion = request.args.get('descripcion','')
+    imagen = request.args.get('imagen','')
 
-    insert_post(post_name ,author_name ,descripcion)
+    insert_post(post_name ,author_name ,descripcion,imagen)
     
-    redirect(url_for('home'))
-    return render_template("home.html", post_name=post_name, author_name=author_name, descripcion=descripcion)
+    return redirect(url_for('home'))
+    #return render_template("home.html", post_name=post_name, author_name=author_name, descripcion=descripcion)
 
     
 @app.route('/logout')

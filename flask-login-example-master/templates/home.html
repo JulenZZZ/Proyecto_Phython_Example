@@ -78,16 +78,16 @@
                 
                     {% for s in posts %}
                          <h2>
-                            <a href="#">{{ post_name }}</a>
+                            <a href="#">{{ s.name }}</a>
                         </h2>
                         <p class="lead">
-                        by <a href="index.php">{{ author_name }}</a>
+                        by <a href="index.php">{{ s.author }}</a>
                         </p>
                         <p><span class="glyphicon glyphicon-time"></span> Posted en mayo de 2017</p>
                         <hr>
-                        <img class="img-responsive" src="https://huddle.eurostarsoftwaretesting.com/wp-content/uploads/2014/05/python-programming.jpg" alt="">
+                        <img class="img-responsive" src="{{ s.imagen }}" alt="">
                         <hr>
-                        <p>{{ descripcion }}</p>
+                        <p>{{ s.desc }}</p>
                         
 
                         <hr>
@@ -99,37 +99,6 @@
 
                 <hr>
 
-                <!-- Second Blog Post -->
-                <h2>
-                    <a href="#">Blog Post Title</a>
-                </h2>
-                <p class="lead">
-                    by <a href="index.php">Start Bootstrap</a>
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
-                <hr>
-                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores harum voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora ipsam distinctio minima dolorum perferendis labore impedit voluptates!</p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                <hr>
-
-                <!-- Third Blog Post -->
-                <h2>
-                    <a href="#">Blog Post Title</a>
-                </h2>
-                <p class="lead">
-                    by <a href="index.php">Julen</a>
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
-                <hr>
-                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, voluptates, voluptas dolore ipsam cumque quam veniam accusantium laudantium adipisci architecto itaque dicta aperiam maiores provident id incidunt autem. Magni, ratione.</p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                <hr>
 
                 <!-- Pager -->
                 <ul class="pager">
@@ -204,6 +173,8 @@
                     <input type="text" name="author_name" placeholder="Nombre del autor."><br>
                         Descripcion:<br>
                     <input type="text" name="descripcion" placeholder="Introduzca la descripcion del post."><br>
+                      Imagen:<br>
+                    <input type="text" name="imagen" placeholder="Introduzca la URL de la imagen."><br>
                     <input type="submit" value="Submit">
                 </form>
                 </div>

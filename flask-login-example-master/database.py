@@ -19,14 +19,14 @@ def create_db():
     c = conn.cursor()    
     
     # Create table
-    c.execute('''CREATE TABLE IF NOT EXISTS post (name text, author text, desc text)''')
+    c.execute('''CREATE TABLE IF NOT EXISTS post (name text, author text, desc text, img text)''')
 
 
     # Save (commit) the changes
     conn.commit()
     c.close()
 
-def insert_post(post_name,author_name,descripcion):
+def insert_post(post_name,author_name,descripcion,imagen):
 
      # open connection and cursor
     conn = sqlite3.connect("mydatabase.db")
@@ -34,7 +34,7 @@ def insert_post(post_name,author_name,descripcion):
     c = conn.cursor()    
 
     # Insert a row of data
-    c.execute("INSERT INTO post VALUES ('%s','%s','%s')" % (post_name,author_name,descripcion))
+    c.execute("INSERT INTO post VALUES ('%s','%s','%s','%s')" % (post_name,author_name,descripcion,imagen))
     
 
     # Save (commit) the changes
