@@ -10,6 +10,6 @@ JavaScript(Bootstrap) | Jinja2 rendericación de Templates
 
 ## Functions:
 
-*El Microblog contiene una página de Login para acceder a la página principal.
-*Se podrá cerrar sesión desde la página principal.
-*Cada post que sea añadido se guardará automaticamente en la base de datos de forma permanente.
+* El Microblog contiene una página de Login para acceder a la página principal.
+* Se podrá cerrar sesión desde la página principal.
+* Cada post que sea añadido se guardará automaticamente en la base de datos de forma permanente.
