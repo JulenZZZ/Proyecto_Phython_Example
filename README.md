@@ -8,6 +8,5 @@ JavaScript(Bootstrap) | Jinja2 rendericación de Templates
 
 
 
-![GitHub Logo](/images/logo.png)
-Format: ![Alt Text](url)
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
 
