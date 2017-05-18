@@ -19,7 +19,7 @@ def create_db():
     c = conn.cursor()    
     
     # Create table
-    c.execute('''CREATE TABLE IF NOT EXISTS post (name text, author text, desc text, img text)''')
+    c.execute('''CREATE TABLE IF NOT EXISTS posts (name text, author text, desc text, img text)''')
 
 
     # Save (commit) the changes
@@ -34,7 +34,7 @@ def insert_post(post_name,author_name,descripcion,imagen):
     c = conn.cursor()    
 
     # Insert a row of data
-    c.execute("INSERT INTO post VALUES ('%s','%s','%s','%s')" % (post_name,author_name,descripcion,imagen))
+    c.execute("INSERT INTO posts VALUES ('%s','%s','%s','%s')" % (post_name,author_name,descripcion,imagen))
     
 
     # Save (commit) the changes
@@ -51,7 +51,7 @@ def consulta_all_post():
     c = conn.cursor()    
 
     # select all students
-    c.execute("SELECT * from post")
+    c.execute("SELECT * from posts")
     posts = c.fetchall() 
 
 
