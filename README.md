@@ -7,6 +7,5 @@ CSS | Flask Microframework
 JavaScript(Bootstrap) | Jinja2 rendericación de Templates
 
 
-
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![microblog_python_logo](http://vanimg.s3.amazonaws.com/blog-redesign-tips-1.jpg)
 
