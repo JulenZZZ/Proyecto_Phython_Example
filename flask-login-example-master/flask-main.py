@@ -50,7 +50,14 @@ def logout():
     flash="Acabas de cerrar sesión!"
     return render_template('login.html', flash=flash)
 
+'''@app.route('/search', methods=['GET'])
+def busqueda():
+    palabra= request.args.get('palabra', '')
 
+    busqueda(palabra)
+
+    return redirect(url_for('home'))
+'''
 
 if __name__ == "__main__":
     app.run()
