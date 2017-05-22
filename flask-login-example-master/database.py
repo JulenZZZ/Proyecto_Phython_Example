@@ -19,7 +19,7 @@ def create_db():
     c = conn.cursor()    
     
     # Create table
-    c.execute('''CREATE TABLE IF NOT EXISTS posts (name text, author text, desc text, img text)''')
+    c.execute('''CREATE TABLE IF NOT EXISTS posts (name text, author text, desc text, imagen text)''')
 
 
     # Save (commit) the changes
@@ -34,7 +34,7 @@ def insert_post(post_name,author_name,descripcion,imagen):
     c = conn.cursor()    
 
     # Insert a row of data
-    c.execute("INSERT INTO posts VALUES ('%s','%s','%s','%s')" % (post_name,author_name,descripcion,imagen))
+    c.execute("INSERT INTO posts VALUES ('%s','%s','%s','%s')" % (post_name, author_name, descripcion,imagen))
     
 
     # Save (commit) the changes
@@ -56,4 +56,26 @@ def consulta_all_post():
 
 
     return posts
+    c.close()
+
+'''def get_all_posts():
+    conn = sqlite3.connect("mydatabase.db")
+    conn.row_factory = dict_factory
+    c = conn.cursor()    
+
+
+    c.execute("SELECT * from post")'''
+
+def busqueda(palabra):
+    #consultar los datos de la tabla post
+    # open connection and cursor
+    conn = sqlite3.connect("mydatabase.db")
+    conn.row_factory = dict_factory
+    c = conn.cursor()    
+
+    # busqueda de la palabra deseada en la base de datos
+    c.execute("SELECT * FROM posts WHERE name LIKE '%N%' ")
+    busqueda = c.fetchall()
+
+    return busqueda
     c.close()
