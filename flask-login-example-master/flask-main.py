@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request, url_for, redirect
+from datetime import datetime
 
 from database import *
 
@@ -16,8 +17,9 @@ def index():
 
 @app.route('/home')
 def home():
+    now = datetime.now()
     posts= consulta_all_post()
-    return render_template("home.html",posts=posts)
+    return render_template("home.html",posts=posts, now=now)
 
 @app.route('/login', methods=['GET','POST'])
 def login():
