@@ -49,15 +49,14 @@ def route_insert_post():
 def logout():
     flash="Acabas de cerrar sesión!"
     return render_template('login.html', flash=flash)
-
-'''@app.route('/search', methods=['GET'])
-def busqueda():
-    palabra= request.args.get('palabra', '')
-
-    busqueda(palabra)
+#funcion para borrar post en desarrollo
+@app.route('/delete_post', methods=['GET'])
+def delete():
+    name_borrar = request.args.get('delete', '')
+    post_name = request.args.get('post_name', '')
+    delete_post(name_borrar,post_name)
 
     return redirect(url_for('home'))
-'''
 
 if __name__ == "__main__":
     app.run()
