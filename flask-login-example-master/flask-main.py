@@ -50,7 +50,7 @@ def logout():
     flash="Acabas de cerrar sesión!"
     return render_template('login.html', flash=flash)
 #funcion para borrar post en desarrollo
-@app.route('/delete_post', methods=['POST'])
+@app.route('/delete_post', methods=['GET'])
 def delete():
     name_borrar = request.args.get('delete', '')
     
