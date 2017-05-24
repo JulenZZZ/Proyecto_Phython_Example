@@ -65,6 +65,23 @@ def consulta_all_post():
 
 
     c.execute("SELECT * from post")'''
+#funcion para borrar post en desarrollo
+
+def delete_post(name_borrar,post_name):
+    #consultar los datos de la tabla post
+    # open connection and cursor
+    conn = sqlite3.connect("mydatabase.db")
+    conn.row_factory = dict_factory
+    c = conn.cursor()
+
+    #borrar post 
+    sql="DELETE * FROM posts WHERE name ="+name_borrar
+    c.execute("DELETE * FROM posts WHERE name=='%s'" % (post_name))
+
+    #commit
+    conn.commit()
+    c.close()
+
 
 def busqueda(palabra):
     #consultar los datos de la tabla post
