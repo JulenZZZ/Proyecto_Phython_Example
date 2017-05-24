@@ -53,8 +53,8 @@ def logout():
 @app.route('/delete_post', methods=['POST'])
 def delete():
     name_borrar = request.args.get('delete', '')
-    post_name = request.args.get('post_name', '')
-    delete_post(name_borrar,post_name)
+    
+    delete_post(name_borrar)
 
     return redirect(url_for('home'))
 
