@@ -73,3 +73,19 @@ def delete_post(name_borrar):
     #commit
     conn.commit()
     c.close()
+def search_post(name_buscar):
+    #abrir conexion y cursor
+    conn = sqlite3.connect("mydatabase.db")
+    conn.row_factory = dict_factory
+    c = conn.cursor()
+
+    #buscar post
+    sql= "SELECT * FROM posts WHERE name LIKE "+"'"+name_buscar+"'" 
+    c.execute(sql)
+    busqueda = c.fetchall() 
+
+    return busqueda
+
+    #commit
+    conn.commit()
+    c.close()
