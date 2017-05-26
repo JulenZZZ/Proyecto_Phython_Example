@@ -1,5 +1,6 @@
 import sqlite3
 
+
 #donde se guardara la base de datos sqlite
 conn = sqlite3.connect("mydatabase.db")
 
@@ -19,7 +20,7 @@ def create_db():
     c = conn.cursor()    
     
     # Create table
-    c.execute('''CREATE TABLE IF NOT EXISTS posts (name text, author text, desc text, imagen text)''')
+    c.execute('''CREATE TABLE IF NOT EXISTS posts (name text, author text, desc text, img text)''')
 
 
     # Save (commit) the changes
@@ -34,7 +35,7 @@ def insert_post(post_name,author_name,descripcion,imagen):
     c = conn.cursor()    
 
     # Insert a row of data
-    c.execute("INSERT INTO posts VALUES ('%s','%s','%s','%s')" % (post_name, author_name, descripcion,imagen))
+    c.execute("INSERT INTO posts VALUES ('%s','%s','%s','%s') order by post_name desc" % (post_name,author_name,descripcion,imagen))
     
 
     # Save (commit) the changes
@@ -58,16 +59,7 @@ def consulta_all_post():
     return posts
     c.close()
 
-'''def get_all_posts():
-    conn = sqlite3.connect("mydatabase.db")
-    conn.row_factory = dict_factory
-    c = conn.cursor()    
-
-
-    c.execute("SELECT * from post")'''
-#funcion para borrar post en desarrollo
-
-def delete_post(name_borrar,post_name):
+def delete_post(name_borrar):
     #consultar los datos de la tabla post
     # open connection and cursor
     conn = sqlite3.connect("mydatabase.db")
@@ -75,24 +67,9 @@ def delete_post(name_borrar,post_name):
     c = conn.cursor()
 
     #borrar post 
-    sql="DELETE * FROM posts WHERE name ="+name_borrar
-    c.execute("DELETE * FROM posts WHERE name=='%s'" % (post_name))
+    sql="DELETE  FROM posts WHERE name ="+name_borrar
+    c.execute(sql)
 
     #commit
     conn.commit()
-    c.close()
-
-
-def busqueda(palabra):
-    #consultar los datos de la tabla post
-    # open connection and cursor
-    conn = sqlite3.connect("mydatabase.db")
-    conn.row_factory = dict_factory
-    c = conn.cursor()    
-
-    # busqueda de la palabra deseada en la base de datos
-    c.execute("SELECT * FROM posts WHERE name LIKE '%N%' ")
-    busqueda = c.fetchall()
-
-    return busqueda
     c.close()
