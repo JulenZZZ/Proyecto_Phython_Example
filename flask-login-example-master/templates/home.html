@@ -111,15 +111,17 @@
 
               
                 <div class="well">
-                    <h4>Blog Search</h4>
+                     <div class="well">
+                    <h4>Buscar Post</h4>
                     <div class="input-group">
-                        <input type="text" class="form-control">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                        </span>
+                       <form action="/search_post" method="GET">
+                        <input type="text" name="delete" placeholder="Introduzca el nombre del post que desea buscar."><br>
+                        <input type="submit" value="Buscar">
+                    </form>
+                        
                     </div>
+              
+                </div>
             
                 </div>
 
