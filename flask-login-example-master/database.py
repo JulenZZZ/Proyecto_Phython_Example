@@ -82,10 +82,10 @@ def search_post(name_buscar):
     #buscar post
     sql= "SELECT * FROM posts WHERE name LIKE "+"'%"+name_buscar+"%'" 
     c.execute(sql)
-    busqueda = c.fetchall() 
-
-    return busqueda
-
-    #commit
-    conn.commit()
+    posts = c.fetchall() 
     c.close()
+    
+    return posts
+
+   
+    
