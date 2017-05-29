@@ -80,7 +80,7 @@ def search_post(name_buscar):
     c = conn.cursor()
 
     #buscar post
-    sql= "SELECT * FROM posts WHERE name LIKE "+"'"+name_buscar+"'" 
+    sql= "SELECT * FROM posts WHERE name LIKE "+"'%"+name_buscar+"%'" 
     c.execute(sql)
     busqueda = c.fetchall() 
 
