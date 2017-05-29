@@ -91,28 +91,7 @@
                
                 {% endif %}
                 
-                 {% if busqueda %}
-                
-                    {% for s in busqueda %}
-                         <h2>
-                            <a href="#">{{ s.name }}</a>
-                        </h2>
-                        <p class="lead">
-                        by <a href="index.php">{{ s.author }}</a>
-                        </p>
-                        <p><span class="glyphicon glyphicon-time"></span> {{ now }}</p>
-                        <hr>
-                        <img class="img-responsive" src="{{ s.imagen }}" alt="">
-                        <hr>
-                        <p>{{ s.desc }}</p>
-                        
-
-                        <hr>
-
-                    {% endfor %}    
-                
-               
-                {% endif %}
+                 
 
                 <hr>
 
@@ -151,7 +130,7 @@
                  <div class="well">
                     <h4>Borrar Post</h4>
                     <form action="/delete_post" method="GET">
-                    <input type="text" name="delete" placeholder="Introduzca el nombre del post que desea eliminar."><br>
+                    <input type="text" name="search" placeholder="Introduzca el nombre del post que desea eliminar."><br>
                     <input type="submit" value="Borrar">
                     </form>
                 </div>
