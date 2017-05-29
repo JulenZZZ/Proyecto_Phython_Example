@@ -61,9 +61,9 @@ def delete():
 @app.route('/search_post', methods=['GET'])
 def search():
     name_buscar = request.args.get('search','')
-    search_post(name_buscar)
+    posts = search_post(name_buscar)
 
-    return redirect(url_for('home'))
+    return render_template("home.html",posts=posts)
 
 if __name__ == "__main__":
     app.run()
