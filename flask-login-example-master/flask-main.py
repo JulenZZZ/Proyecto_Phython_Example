@@ -77,5 +77,3 @@ if __name__ == "__main__":
 
 
 
-#la parte mas importante es el python
-#pueden haber funciones que sean por terminal
