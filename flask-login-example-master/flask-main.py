@@ -20,7 +20,7 @@ def home():
     now = datetime.now()
     posts= consulta_all_post()
     msg_inicio_sesion="Estas conectado como ADMIN!!"
-    return render_template("home.html",posts=posts, now=now, msg_inicio_sesion=inicio)
+    return render_template("home.html",posts=posts, now=now, inicio=msg_inicio_sesion)
 
 @app.route('/login', methods=['GET','POST'])
 def login():
