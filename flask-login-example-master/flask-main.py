@@ -19,7 +19,8 @@ def index():
 def home():
     now = datetime.now()
     posts= consulta_all_post()
-    return render_template("home.html",posts=posts, now=now)
+    msg_inicio_sesion="Estas conectado como ADMIN!!"
+    return render_template("home.html",posts=posts, now=now, msg_inicio_sesion=inicio)
 
 @app.route('/login', methods=['GET','POST'])
 def login():
